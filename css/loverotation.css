@@ -1,0 +1,280 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-color: antiquewhite;
+}
+.master2{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius:50%;
+    transform: translate(-50%,-50%) rotate(22.5deg);
+    z-index: 999;
+}
+.ganzi{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    width: 20px;
+    height: 500px;
+    background-image: linear-gradient(to bottom, red , yellow ,blue, green,#32ff7e,#ff9f1a,blueviolet);
+    animation: caihong 1s linear infinite;
+    /* transition: all .5s; */
+}
+@keyframes caihong{
+    0%{
+        background-image: linear-gradient(to bottom, red , yellow ,blue, green,#32ff7e,#ff9f1a,blueviolet);
+    }
+    7%{
+        background-image: linear-gradient(to bottom,blueviolet, red , yellow ,blue, green,#32ff7e,#ff9f1a);
+    }
+    14%{
+        background-image: linear-gradient(to bottom,#ff9f1a,blueviolet, red , yellow ,blue, green,#32ff7e);
+    }
+    21%{
+        background-image: linear-gradient(to bottom,#32ff7e,#ff9f1a,blueviolet, red , yellow ,blue,green);
+    }
+    28%{
+        background-image: linear-gradient(to bottom,green,#32ff7e,#ff9f1a,blueviolet, red , yellow ,blue);
+    }
+    35%{
+        background-image: linear-gradient(to bottom,blue,green,#32ff7e,#ff9f1a,blueviolet, red ,yellow);
+    }
+    42%{
+        background-image: linear-gradient(to bottom,yellow,blue,green,#32ff7e,#ff9f1a,blueviolet,red);
+    }
+    49%{
+        background-image: linear-gradient(to bottom,red , yellow ,blue, green,#32ff7e,#ff9f1a,blueviolet);
+    }
+    56%{
+        background-image: linear-gradient(to bottom,blueviolet, red , yellow ,blue, green,#32ff7e,#ff9f1a);
+    }
+    63%{
+        background-image: linear-gradient(to bottom,#ff9f1a,blueviolet, red , yellow ,blue, green,#32ff7e);
+    }
+    70%{
+        background-image: linear-gradient(to bottom,#32ff7e,#ff9f1a,blueviolet, red , yellow ,blue,green);
+    }
+    77%{
+        background-image: linear-gradient(to bottom,green,#32ff7e,#ff9f1a,blueviolet, red , yellow ,blue );
+    }
+    84%{
+        background-image: linear-gradient(to bottom,blue,green,#32ff7e,#ff9f1a,blueviolet, red ,yellow );
+    }
+    91%{
+        background-image: linear-gradient(to bottom,yellow,blue,green,#32ff7e,#ff9f1a,blueviolet,red );
+    }
+    100%{
+        background-image: linear-gradient(to bottom,red , yellow ,blue, green,#32ff7e,#ff9f1a,blueviolet);
+    }
+}
+.master2::after,.master2::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    transition: all 1s;
+    opacity: 0;
+}
+.master2::after{
+    transform:translateX(50%) rotate(45deg);
+    border-top-right-radius:100px ;
+    border-bottom-left-radius: 100px;
+    
+}
+.master2::before{
+    transform:translateX(50%) rotate(-45deg);
+    border-top-right-radius:100px ;
+    border-bottom-left-radius:100px ;
+}
+.master2:hover{
+    transition: all 3s;
+    background-color: blueviolet;
+    animation: mas2 1s linear infinite;
+}
+.master2:hover.master2::after,.master2:hover.master2::before{
+    position: absolute;
+    opacity: 1;
+    top: -100px;
+    right: 50px;
+    content: "";
+    width: 100px;
+    height: 300px;
+    background-color: rgba(0, 255, 255,.3);
+    animation: mas2ab  linear;
+}
+@keyframes mas2{
+    0%{
+        transform:translate(-50%,-50%) rotate(22.5deg);
+    }50%{
+        transform:translate(-50%,-50%) rotate(202.5deg);
+    }
+    100%{
+        transform:translate(-50%,-50%) rotate(382.5deg);
+    }
+}
+@keyframes mas2ab{
+    0%{
+        top: 0;
+        right: 50px;
+    }
+    100%{
+        top: -100px;
+        right: 50px;
+    }
+}
+
+.master{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+}
+.quan{
+    position: absolute;
+    transform: translate(-50%,-50%)rotate(45deg);
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: 500px;
+    border: 2px solid rgb(26, 216, 153);
+}
+.master .content{
+    position: absolute;
+    left: -5px;
+    top: -20px;
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+    transition: all 3s;
+}
+.master2:hover+#master{
+    animation: maske 5s 3s linear infinite;
+}
+@keyframes maske{
+    0%{
+        transform:translate(-50%,-50%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%)rotate(360deg);
+    }
+}
+.master2:hover+#master>.content:nth-child(1) {
+    opacity: .8;
+    top: 300px;
+    left: 180px;
+    transition: all 3s;
+    animation: con1 5s 3s linear infinite;
+    
+}
+.master2:hover+#master>.content:nth-child(2) {
+    opacity: .8;
+    top: 300px;
+    left: -200px;
+    transition: all 3s;
+    animation: con1 5s 3s linear infinite;
+}
+.master2:hover+#master>.content:nth-child(3) {
+    opacity: .8;
+    top: -70px;
+    left: -320px;
+    transition: all 3s;
+    animation: con1 5s 3s linear infinite;
+}
+.master2:hover+#master>.content:nth-child(4) {
+    opacity: .8;
+    top: -70px;
+    left: 320px;
+    transition: all 3s;
+    animation: con1 5s 3s linear infinite;
+}
+.master2:hover+#master>.content:nth-child(5) {
+    opacity: .8;
+    top: -300px;
+    transition: all 3s;
+    animation: con1 5s 3s linear infinite;
+}
+.master2:hover+#master>.content:nth-child(1)::after,
+.master2:hover+#master>.content:nth-child(1)::before{
+    animation: colo 5s 5s linear infinite;
+}
+.master2:hover+#master>.content:nth-child(2)::after,
+.master2:hover+#master>.content:nth-child(2)::before{
+    animation: colo 5s 6s linear infinite;
+}
+.master2:hover+#master>.content:nth-child(3)::after,
+.master2:hover+#master>.content:nth-child(3)::before{
+    animation: colo 5s 7s linear infinite;
+}
+.master2:hover+#master>.content:nth-child(4)::after,
+.master2:hover+#master>.content:nth-child(4)::before{
+    animation: colo 5s 8s linear infinite;
+}
+.master2:hover+#master>.content:nth-child(5)::after,
+.master2:hover+#master>.content:nth-child(5)::before{
+    animation: colo 5s 9s linear infinite;
+}
+@keyframes colo{
+    0%{
+        background-color: #fd79a8;
+    }
+    20%{
+        background-color: #ff3f34;
+    }
+    40%{
+        background-color: orange;
+    }
+    60%{
+        background-color: #4bcffa;
+    }
+    80%{
+        background-color: #485460;
+    }
+    100%{
+        background-color: #fd79a8;
+    }
+}
+@keyframes con1{
+    100%{
+        transform:rotate(-360deg);
+    }
+}
+.master .content::after{
+    position: absolute;
+    content: "";
+    left: -18px;
+    background-color: red;
+    width: 100px;
+    height: 160px;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    z-index: 10;
+}
+.master .content::before{
+    position: absolute;
+    content: "";
+    left: 24px;
+    background-color: red;
+    width: 100px;
+    height: 160px;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(45deg);
+    z-index: 10;
+}

@@ -1,0 +1,74 @@
+body{
+    width: 100%;
+    height: 100%;
+}
+.master2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius:50%;
+    transform: translate(-50%,-50%) rotate(22.5deg);
+    z-index: 999;
+}
+.master2::after,.master2::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    transition: all 1s;
+    opacity: 0;
+}
+.master2::after{
+    transform:translateX(50%) rotate(45deg);
+    border-top-right-radius:100px ;
+    border-bottom-left-radius: 100px;
+    
+}
+.master2::before{
+    transform:translateX(50%) rotate(-45deg);
+    border-top-right-radius:100px ;
+    border-bottom-left-radius:100px ;
+}
+.master2:hover{
+    transition: all 3s;
+    background-color: blueviolet;
+    animation: mas2 1s linear infinite;
+}
+.master2:hover.master2::after,.master2:hover.master2::before{
+    position: absolute;
+    opacity: 1;
+    top: -100px;
+    right: 50px;
+    content: "";
+    width: 100px;
+    height: 300px;
+    background-color: rgba(0, 255, 255,.3);
+    animation: mas2ab  linear;
+}
+@keyframes mas2{
+    0%{
+        transform:translate(-50%,-50%) rotate(22.5deg);
+    }50%{
+        transform:translate(-50%,-50%) rotate(202.5deg);
+    }
+    100%{
+        transform:translate(-50%,-50%) rotate(382.5deg);
+    }
+}
+@keyframes mas2ab{
+    0%{
+        top: 0;
+        right: 50px;
+    }
+    100%{
+        top: -100px;
+        right: 50px;
+    }
+}
